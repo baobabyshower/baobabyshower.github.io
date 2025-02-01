@@ -1,3 +1,208 @@
-h1 {
-    color: blue;
+
+
+/***** FONT ******/
+@font-face {
+    font-family: 'PlaylistScript';
+    src: url('./PlaylistScript.otf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+.playlist {
+    font-family: 'PlaylistScript';
 }
+
+.playfair {
+    font-family: "Playfair Display SC", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .quicksand {
+    font-family: "Quicksand", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .birthstone {
+    font-family: "Birthstone Bounce", serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .cormorant_font {
+    font-family: "Cormorant SC", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+/***** HOME *****/
+.home {
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.home_right_flowers {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    width: 50%;
+}
+
+.home_side_flowers {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 35%;
+}
+
+.home_bao {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.5;
+    right: 31%;
+    width: 15%;
+}
+
+.home_baby_shower {
+    color: #c5e0c7;
+    text-align: center;
+    font-size: clamp(3.5rem, 22vw, 11rem);
+    line-height: 0.9;
+    margin-top: 5%;
+}
+
+.home_join_us {
+    font-size: clamp(1.5rem, 3vw, 4rem);
+}
+
+.home_hanjing { 
+    font-size: clamp(1.5rem, 9vw, 5rem);
+    line-height: 0.9;
+    margin-bottom: 8%;
+}
+
+.name-wrapper {
+    display: flex;
+    justify-content: center; /* Center all content */
+    align-items: center;     /* Align items vertically */
+    flex-wrap: wrap;         /* Wrap items on small screens */
+}
+
+.home_and {
+    position: static;        /* Remove absolute positioning */
+    color: #d6ccc2;
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    margin: 0 0.5rem;        /* Adjust spacing if needed */
+}
+
+.date-container {
+    text-align: center;
+    margin: 20px;
+    width: 80%;
+  }
+  
+  .top-line,
+  .bottom-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    color: #d6ccc2;
+  }
+  
+.line {
+    flex: 1;
+    height: 1px;
+    background-color: #d6ccc2
+  }
+  
+  .center-text {
+    margin: 0 10px; /* Space around the centered text */
+    font-size: clamp(1.2rem, 2vw, 3rem);
+  }
+  
+  .main-text {
+    font-size: clamp(1.5rem, 2vw, 5rem);
+    margin: 10px 0;
+    margin-top: -2%;
+    margin-left: -2%;
+    color: #84a998;
+  }
+
+  .two {
+    font-size: 4rem;
+  }
+  
+  .first_pipe, .second_pipe {
+    font-size: 3rem;
+    padding: 0 2%;
+    color: #d6ccc2;
+  }
+
+  .nd {
+    margin-left: -6px;
+  }
+
+  .home_address {
+    font-size: clamp(1.2rem, 2vw, 1.5rem)
+  }
+
+  /***** MOBILE PORTRAIT *******/
+  @media only screen and (max-width: 480px) and (orientation: portrait) {
+    .home_side_flowers {
+        width: 60vw;
+    }
+    
+    .home_right_flowers {
+        width: 95vw;
+    }
+
+    .home {
+        margin-top: -20%;
+    }
+
+    .date-container {
+        position: absolute;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.7);
+        bottom: 10%;
+    }
+
+    .home_address {
+        position: absolute; /* Anchor to the bottom of .home */
+        bottom: 0; 
+        right: 0;  /* Aligns to the right side */
+        padding: 10px; /* Optional padding for spacing */
+        text-align: right;
+        width: 100%; /* Optional: makes it stretch full width */
+        background-color: rgba(255, 255, 255, 0.7); /* Optional: adds contrast if needed */
+    }
+
+    .home_bao {
+        position: absolute;
+        z-index: -1;
+        opacity: 0.5;
+        right: 19%;
+        bottom: 31%;
+        width: 37%;
+    }
+  }
+
+  @media only screen and (max-width: 683px) {
+    .home_and {
+        transform: translate(-309%, 81%);
+    }
+
+    .main-text {
+        margin-top: -6%;
+      }
+  }
