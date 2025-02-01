@@ -428,6 +428,11 @@
     opacity: 0.3;
   }
 
+  img {
+    border: none !important;
+    content: normal !important;
+  }
+  
   /***** MOBILE PORTRAIT *******/
   @media only screen and (max-width: 480px) and (orientation: portrait) {
     /*** HOME ***/
