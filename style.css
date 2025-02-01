@@ -87,7 +87,6 @@
 .home_hanjing { 
     font-size: clamp(1.5rem, 10vw, 5rem);
     line-height: 0.9;
-    margin-bottom: 8%;
 }
 
 .name-wrapper {
@@ -295,6 +294,139 @@
     text-align: center;
 }
 
+/***** REGISTRY *****/
+.registry {
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    /* justify-content: center; Horizontal centering */
+    align-items: center; /* Vertical centering */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(229, 240, 229, 0.4);
+}
+
+.registry_title {
+    color:#84a998;
+    margin: 50px 0 27px 0;
+    font-size: clamp(5rem, 9vw, 8rem);
+}
+
+.registry_baos {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 80%;
+}
+
+.registry_flowers {
+    position: absolute;
+    width: 80%;
+    top: 0;
+    z-index: -1;
+    right: 0;
+    opacity: 0.4;
+}
+.babylist_img {
+    width: 200px;
+    margin: 5%;
+  }
+  
+
+/***** COUNTDOWN *****/
+.countdown {
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.countdown_title {
+    color:#84a998;
+    margin: 50px 0 27px 0;
+    font-size: clamp(5rem, 9vw, 8rem);
+}
+
+.countdown_bcg {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    bottom: -7%;
+    opacity: 0.8;
+}
+
+.clock_all {
+  position: relative;
+  z-index: 10;
+}
+
+.countdown_description {
+    margin-left: 10%;
+    margin-right: 10%;
+    position: relative;
+    z-index: 10;
+    font-family: "Quicksand", serif;
+    font-weight: 400;
+    font-style: normal;
+    padding-top: 10%;
+  }
+  
+  #clockdiv>div {
+      padding: 10px;
+      border-radius: 3px;
+      display: inline-block;
+      background-color: #d6ccc2;
+  }
+  
+  #clockdiv div>span {
+      font-size: 2.5rem;
+      font-family: "Quicksand", serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      color:white;
+      font-display: swap;
+  }
+  
+  /* Style for visible text */
+  .smalltext {
+      font-family: "Playfair Display SC", serif;
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap; 
+      color: white;
+  }
+  
+  .countdown_title {
+      width: 90%;
+      margin-bottom: 10%;
+      margin-top: 10%;
+  }
+  
+  .countdown_img {
+    margin-top: 100px;
+    width: 250px;
+  }
+  
+  .bottom {
+    position: absolute;
+    bottom: 0;
+  }
+  
+  .countdown_flowers {
+    position: absolute;
+    width: 100%;
+    bottom: -10%;
+    right: -37%;
+    transform: scale(-1);
+    opacity: 0.5;
+  }
 
   /***** MOBILE PORTRAIT *******/
   @media only screen and (max-width: 480px) and (orientation: portrait) {
@@ -343,6 +475,10 @@
         width: 80%;
     }
 
+    /**** REGISTRY ****/
+    .babylist_img {
+        width: 150px;
+      }
 
   }
 
