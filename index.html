@@ -6,7 +6,7 @@
         <title>Bao Baby Shower</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Birthstone+Bounce:wght@400;500&family=Cormorant+SC:wght@300;400;500;600;700&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
@@ -54,6 +54,146 @@
                 <div>1340 4th Ave, Seattle, WA</div>
             </div>
         </div>
-        <script></script>
+        <div class="container no-gutters">
+        <div class="row">
+            <div class="col-12 col-md-6 details">
+                <img class="details_flowers" src="./flowers_corner_white.png">
+                <div class="details_title playlist">Details</div>
+                <div class="details_info quicksand">
+                    <div class="details_location playfair">Location</div>
+                    <p>The Residences at Rainier Square <br/> 1340 4th Ave, Seattle, WA</p>
+                    
+                    <div class="details_location playfair">arriving by foot</div>
+                    <p>Please use the front entrance <br/> located at 1340 4th Ave.</p>
+
+                    <div class="details_location playfair">arriving by vehicle</div>
+                    <p >Please use the commercial parking <br/>
+                        garage located at 401 Union St.
+                    </p>
+                    <p>Please park on level C or below <br/>
+                        (Parking fee: $10)</p>
+                    <p>Please take the elevator from <br/>
+                        the parking garage to level 1</p>
+
+                    <div class="details_all">The level 1 lobby Concierge will Provide access for guests to the designated floor.</div>
+                </div>
+                
+            </div>
+
+            <div class="col-12 col-md-6 rsvp">
+                <img class="rsvp_flowers" src="./flowers_side_white.png">
+                <img class="rsvp_bao" src="./rsvp_bao.png">
+                <img class="rsvp_bao_bt" src="./watercolor_bao1.png">
+                <div class="rsvp_title playlist">Rsvp</div>
+                <div class="text-center mt-4 mb-4 quicksand ml-5 mr-5">Please fill out the form below to RSVP. We kindly request to <strong>RSVP by February 23rd</strong>.  We look forward to seeing you! </div>
+                <div class="form quicksand" style="align-self:center;">
+                    <form method="POST" action="https://script.google.com/macros/s/AKfycbwiONrNXT5iQMVbp7Q2mdmC8KZjefCQoGYoNpVr0ulNauzwYoVV3FjKuMSADE47zyMm/exec">
+                    <div class="form-group">
+                            <label for="Name">Name</label>
+                            <input name="Name" type="text" class="form-control" placeholder="First &amp; last name" required>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="Email">Email</label>
+                            <input name="Email" type="email" class="form-control" placeholder="Email" required>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="Phone">Phone Number <span id="phone_format"></span></label>
+                            <input name="Phone" class="form-control" type="tel" id="phone" name="phone" pattern="[0-9]{3}[0-9]{3}[0-9]{4}">
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="Guests">Total in Party</label>
+                            <select name="Guests" class="form-control" id="guests" class="form-control">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                              </select>
+                          </div>
+                        <div class="form-group">
+                            <label for="Message">Message (optional)</label>
+                            <textarea name="Message" class="form-control" rows="3" placeholder="Any message goes here!"></textarea>
+                        </div>
+                        <button type="submit" class="button w-100 p-2">CONFIRM YOUR RSVP</button>
+                    </form>
+                </div>
+                <!-- <img class="rsvp_bottom_img" src="./mimi_flowers2.png">  -->
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- MODAL ON SUCCESS -->
+        <div id="responseModal" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title playfair" id="modalTitle">Thank you for attending</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body quicksand">
+                    <p id="modalMessage">Your RSVP has been successfully submitted and we look forward to seeing you on January 4th 2025!</p>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="button w-100 p-2" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
+        <!-- MODAL SCRIPT ON SUCCESS -->
+        <script>
+            document.querySelector('form').addEventListener('submit', async function (event) {
+                event.preventDefault(); // Prevent default form submission
+            
+                const submitButton = event.target.querySelector('button[type="submit"]'); 
+                const modalTitle = document.getElementById('modalTitle');
+                const modalMessage = document.getElementById('modalMessage');
+            
+                // Disable the submit button and show a loading message
+                    submitButton.disabled = true;
+                    modalTitle.textContent = "Submitting...";
+                    modalMessage.textContent = "Please wait while we process your RSVP.";
+                    $('#responseModal').modal('show');
+            
+                    try {
+                    // Example: Replace with your actual Google Sheets submission URL
+                    const formData = new FormData(event.target); 
+                    const response = await fetch('https://script.google.com/macros/s/AKfycbwiONrNXT5iQMVbp7Q2mdmC8KZjefCQoGYoNpVr0ulNauzwYoVV3FjKuMSADE47zyMm/exec', {
+                        method: 'POST',
+                        body: formData,
+                    });
+            
+                    if (response.ok) { // Check if the response status is 200-299
+                        modalTitle.textContent = "Success";
+                        modalMessage.textContent = "Your RSVP has been successfully submitted!";
+                    } else {
+                        modalTitle.textContent = "Error";
+                        modalMessage.textContent = "There was an error submitting your RSVP. Please try again.";
+                    }
+                } catch (error) {
+                    modalTitle.textContent = "Error";
+                    modalMessage.textContent = "Network error occurred. Please check your connection.";
+                } finally {
+                    // Re-enable the submit button after the response
+                    submitButton.disabled = false;
+                }
+            
+                // Display the modal
+                $('#responseModal').modal('show');
+            });
+        </script>
     </body>
 </html>
