@@ -432,7 +432,7 @@
     border: none !important;
     content: normal !important;
   }
-  
+
   /***** MOBILE PORTRAIT *******/
   @media only screen and (max-width: 480px) and (orientation: portrait) {
     /*** HOME ***/
@@ -465,6 +465,7 @@
         width: 100%; /* Optional: makes it stretch full width */
         background-color: rgba(255, 255, 255, 0.7); /* Optional: adds contrast if needed */
     }
+
 
     .home_bao {
         position: absolute;
