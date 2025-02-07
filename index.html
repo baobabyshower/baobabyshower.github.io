@@ -98,15 +98,31 @@
                     <img class="rsvp_bao" src="./rsvp_bao.png">
                     <img class="rsvp_bao_bt" src="./watercolor_bao1.png">
                     <div class="rsvp_title playlist">Rsvp</div>
-                    <div class="text-center mt-4 mb-4 quicksand ml-5 mr-5">Please fill out the form below to RSVP. We kindly request to <strong>RSVP by February 23rd</strong>.  We look forward to seeing you! </div>
+                    <div class="text-center mt-4 mb-4 quicksand ml-5 mr-5">Please confirm your RSVP. We kindly request to <strong>RSVP by February 23rd</strong>.  We look forward to seeing you! </div>
                     <div class="form quicksand" style="align-self:center;">
                         <form method="POST" action="https://script.google.com/macros/s/AKfycbx8DDRi9xAUmN-4WrfScmQmPMGjFBa9tezTUPl-4opCz0m7pZDsulaA1OeCtcgDKHQltw/exec">
                         <div class="form-group">
                                 <label for="Name">Name</label>
                                 <input name="Name" type="text" class="form-control" placeholder="First &amp; last name" required>
                             </div>
-        
+
                             <div class="form-group">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="customRadioInline1" name="Confirm" class="custom-control-input">
+                                    <label class="custom-control-label" for="Confirm">YES</label>
+                                  </div>
+                                  <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="customRadioInline2" name="Confirm" class="custom-control-input">
+                                    <label class="custom-control-label" for="Confirm">NO</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="customRadioInline3" name="Confirm" class="custom-control-input">
+                                    <label class="custom-control-label" for="Confirm">MAYBE</label>
+                                </div>
+                               
+                            </div>
+        
+                            <!-- <div class="form-group">
                                 <label for="Email">Email</label>
                                 <input name="Email" type="email" class="form-control" placeholder="Email" required>
                             </div>
@@ -126,7 +142,7 @@
                                     <option value="5">5</option>
                                     <option value="6">6</option>
                                 </select>
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label for="Message">Message (optional)</label>
                                 <textarea name="Message" class="form-control" rows="3" placeholder="Any message goes here!"></textarea>
