@@ -233,13 +233,17 @@
     bottom: 0;
   }
 
+  .bold {
+    font-weight: 900;
+  }
+
   .rsvp_bao {
     position: absolute;
     width: 49%;
     z-index: -1;
     top: 4%;
     left: -14%;
-    opacity: 0.5;
+    opacity: 0.2;
 }
 
     .rsvp_bao_bt {
