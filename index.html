@@ -101,26 +101,20 @@
                     <div class="text-center mt-4 mb-4 quicksand ml-5 mr-5">Please confirm your RSVP. We kindly request to <strong>RSVP by February 23rd</strong>.  We look forward to seeing you! </div>
                     <div class="form quicksand" style="align-self:center;">
                         <form method="POST" action="https://script.google.com/macros/s/AKfycbx8DDRi9xAUmN-4WrfScmQmPMGjFBa9tezTUPl-4opCz0m7pZDsulaA1OeCtcgDKHQltw/exec">
-                        <div class="form-group">
+                            <div class="form-group">
                                 <label for="Name">Name</label>
                                 <input name="Name" type="text" class="form-control" placeholder="First &amp; last name" required>
                             </div>
 
-                            <div class="form-group">
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="customRadioInline1" name="Confirm" class="custom-control-input">
-                                    <label class="custom-control-label" for="Confirm">YES</label>
-                                  </div>
-                                  <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="customRadioInline2" name="Confirm" class="custom-control-input">
-                                    <label class="custom-control-label" for="Confirm">NO</label>
+                                <div class="custom-control">
+                                <input type="radio" id="YES" name="Confirm" value="YES">
+                                <label for="YES">YES</label><br>
+                                <input type="radio" id="NO" name="Confirm" value="NO">
+                                <label for="NO">NO</label><br>
+                                <input type="radio" id="MAYBE" name="Confirm" value="MAYBE">
+                                <label for="MAYBE">MAYBE</label>
                                 </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="customRadioInline3" name="Confirm" class="custom-control-input">
-                                    <label class="custom-control-label" for="Confirm">MAYBE</label>
-                                </div>
-                               
-                            </div>
+                         
         
                             <!-- <div class="form-group">
                                 <label for="Email">Email</label>
