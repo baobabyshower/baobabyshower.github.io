@@ -100,7 +100,7 @@
                     <div class="rsvp_title playlist">Rsvp</div>
                     <div class="text-center mt-4 mb-4 quicksand ml-5 mr-5">Please confirm your RSVP. We kindly request to <strong>RSVP by February 23rd</strong>.  We look forward to seeing you! </div>
                     <div class="form quicksand" style="align-self:center;">
-                        <form method="POST" action="https://script.google.com/macros/s/AKfycbx8DDRi9xAUmN-4WrfScmQmPMGjFBa9tezTUPl-4opCz0m7pZDsulaA1OeCtcgDKHQltw/exec">
+                        <form method="POST" action="https://script.google.com/macros/s/AKfycbygaH9tWpfjIiZ2kzweZWc-XlFJA66EiVaGPpaoDJv3-e5A-v03A2iZTCvJbPf9nvX7/exec">
                             <div class="form-group">
                                 <label for="Name">Name</label>
                                 <input name="Name" type="text" class="form-control" placeholder="First &amp; last name" required>
@@ -235,7 +235,7 @@
                     try {
                     // Example: Replace with your actual Google Sheets submission URL
                     const formData = new FormData(event.target); 
-                    const response = await fetch('https://script.google.com/macros/s/AKfycbx8DDRi9xAUmN-4WrfScmQmPMGjFBa9tezTUPl-4opCz0m7pZDsulaA1OeCtcgDKHQltw/exec', {
+                    const response = await fetch('https://script.google.com/macros/s/AKfycbygaH9tWpfjIiZ2kzweZWc-XlFJA66EiVaGPpaoDJv3-e5A-v03A2iZTCvJbPf9nvX7/exec', {
                         method: 'POST',
                         body: formData,
                     });
