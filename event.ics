@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Your Company//NONSGML v1.0//EN
+BEGIN:VEVENT
+UID:1234567890
+DTSTAMP:20250208T120000Z
+DTSTART:20250302T130000Z
+DTEND:20250302T150000Z
+SUMMARY:Hanjing and Matt's Baby Shower
+DESCRIPTION:If arriving by foot: Use the front entrance located at 1340 4th Ave.
+
+If arriving by vehicle: Use the commercial parking garage located at 401 Union St. Park on level C or below (Parking fee: $10). Take the elevator from
+the parking garage to level 1.
+
+ALL: The level 1 lobby Concierge will Provide access for guests to the designated floor.
+LOCATION: 1340 4th Ave, Seattle, WA 98101
+LOCATION:1340 4th Ave, Seattle, WA 98101
+END:VEVENT
+END:VCALENDAR
