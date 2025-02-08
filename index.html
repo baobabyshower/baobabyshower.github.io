@@ -90,6 +90,7 @@
                             the parking garage to level 1</p>
 
                         <div class="details_all">The level 1 lobby Concierge will Provide access for guests to the designated floor.</div>
+                        <button type="submit" class="button p-2" id="add-to-calendar">ADD EVENT TO CALENDAR</button>
                     </div>
                 </div>
 
@@ -143,6 +144,7 @@
                             </div>
                             <button type="submit" class="button w-100 p-2">CONFIRM YOUR RSVP</button>
                         </form>
+                    
                     </div>
                 </div>
             </div>
@@ -259,6 +261,35 @@
                 $('#responseModal').modal('show');
             });
         </script>
+
+        <!-- ADD TO CALENDAR BUTTON -->
+        <script>
+            document.getElementById("add-to-calendar").addEventListener("click", function() {
+                const icsContent = `BEGIN:VCALENDAR
+            VERSION:2.0
+            BEGIN:VEVENT
+            DTSTART:20250302T130000Z
+            DTEND:20250302T150000Z
+            SUMMARY: 
+            DESCRIPTION: If arriving by foot: Use the front entrance located at 1340 4th Ave.
+
+            If arriving by vehicle: Use the commercial parking garage located at 401 Union St. Park on level C or below (Parking fee: $10). Take the elevator from
+            the parking garage to level 1.
+
+            ALL: The level 1 lobby Concierge will Provide access for guests to the designated floor.
+            LOCATION: 1340 4th Ave, Seattle, WA 98101
+            END:VEVENT
+            END:VCALENDAR`;
+            
+                const blob = new Blob([icsContent], { type: 'text/calendar' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = "event.ics";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+            </script>
 
           <!-- LOGIC FOR COUNTDOWN TIMER -->
           <script>
