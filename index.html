@@ -70,6 +70,14 @@
         </div>
         <div class="container-fluid no-gutters">
             <div class="row">
+                <div class="row">
+                    <div class="col-12 col-md-6 gallery">
+                        <div class="details_title playlist">Gallery</div>
+                        <div class="gallery_images" id="gallery_images"></div>                    
+                    </div>
+                
+
+
                 <div class="col-12 col-md-6 details">
                     <img class="details_flowers" src="./flowers_corner_white.png">
                     <div class="details_title playlist">Details</div>
@@ -221,6 +229,25 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         
+         <!-- FOR GALLERY -->
+         <script>
+            const API_KEY = 'AIzaSyBQ2KmJybXvu7Rdr225r1n__5ifO49VCQk';
+            const FOLDER_ID = '1TID28-jrGiffBQLwVMXrxgGza2GcR0-Q';
+        
+            async function listImages() {
+              const res = await fetch(`https://www.googleapis.com/drive/v3/files?q='${FOLDER_ID}'+in+parents+and+mimeType+contains+'image/'&key=${API_KEY}`);
+              const data = await res.json();
+              const gallery = document.getElementById('gallery');
+              data.files.forEach(file => {
+                const img = document.createElement('img');
+                img.src = `https://drive.google.com/uc?export=view&id=${file.id}`;
+                gallery.appendChild(img);
+              });
+            }
+        
+            listImages();
+          </script>
+
         <!-- MODAL SCRIPT ON SUCCESS -->
         <script>
             document.querySelector('form').addEventListener('submit', async function (event) {
@@ -264,41 +291,7 @@
             });
         </script>
 
-        <!-- ADD TO CALENDAR BUTTON -->
-        <script>
-            document.getElementById("add-to-calendar").addEventListener("click", function() {
-                const icsContent = `BEGIN:VCALENDAR
-            VERSION:2.0
-            BEGIN:VEVENT
-            DTSTART:20250302T130000Z
-            DTEND:20250302T150000Z
-            SUMMARY:Hanjing and Matt's Baby Shower
-            DESCRIPTION:If arriving by foot: Use the front entrance located at 1340 4th Ave.
-
-If arriving by vehicle: Use the commercial parking garage located at 401 Union St. Park on level C or below (Parking fee: $10). Take the elevator from
-the parking garage to level 1.
-
-ALL: The level 1 lobby Concierge will Provide access for guests to the designated floor.
-            LOCATION:1340 4th Ave, Seattle, WA 98101
-            END:VEVENT
-            END:VCALENDAR`;
-            
-                const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' }); // Ensure correct MIME type
-                const url = URL.createObjectURL(blob);
-                
-                const link = document.createElement('a');
-                link.href = url;
-                link.download = "event.ics";
-                
-                // Safari requires link to be added to the DOM before clicking
-                document.body.appendChild(link);
-                link.click();
-                
-                // Cleanup
-                document.body.removeChild(link);
-                URL.revokeObjectURL(url);
-            });
-            </script>
+       
 
           <!-- LOGIC FOR COUNTDOWN TIMER -->
           <script>
