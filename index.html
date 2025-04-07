@@ -235,11 +235,9 @@
 
             const API_KEY = 'AIzaSyBQ2KmJybXvu7Rdr225r1n__5ifO49VCQk';
             const FOLDER_ID = '1TID28-jrGiffBQLwVMXrxgGza2GcR0-Q';
-            const API_URL = `https://www.googleapis.com/drive/v3/files?q='1TID28-jrGiffBQLwVMXrxgGza2GcR0-Q'+in+parents+and+mimeType+contains+'image/'&key=${API_KEY}`;
 
-        
             async function listImages() {
-                const res = await fetch(PROXY_URL + API_URL);
+              const res = await fetch(PROXY_URL + `https://www.googleapis.com/drive/v3/files?q=%271TID28-jrGiffBQLwVMXrxgGza2GcR0-Q%27+in+parents+and+mimeType+contains+%27image/%27&key=AIzaSyBQ2KmJybXvu7Rdr225r1n__5ifO49VCQk`);
               const data = await res.json();
               const gallery = document.getElementById('gallery');
               data.files.forEach(file => {
