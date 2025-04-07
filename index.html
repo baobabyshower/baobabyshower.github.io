@@ -231,11 +231,15 @@
         
          <!-- FOR GALLERY -->
          <script>
+            const PROXY_URL = "https://cors-anywhere.herokuapp.com/";
+
             const API_KEY = 'AIzaSyBQ2KmJybXvu7Rdr225r1n__5ifO49VCQk';
             const FOLDER_ID = '1TID28-jrGiffBQLwVMXrxgGza2GcR0-Q';
+            const API_URL = `https://www.googleapis.com/drive/v3/files?q='1TID28-jrGiffBQLwVMXrxgGza2GcR0-Q'+in+parents+and+mimeType+contains+'image/'&key=${API_KEY}`;
+
         
             async function listImages() {
-              const res = await fetch(`https://www.googleapis.com/drive/v3/files?q='${FOLDER_ID}'+in+parents+and+mimeType+contains+'image/'&key=${API_KEY}`);
+                const res = await fetch(PROXY_URL + API_URL);
               const data = await res.json();
               const gallery = document.getElementById('gallery');
               data.files.forEach(file => {
