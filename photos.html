@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Bao Baby Shower</title>
+        <meta name="description" content="Bao Baby Shower">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Birthstone+Bounce:wght@400;500&family=Cormorant+SC:wght@300;400;500;600;700&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+        
+        
+        <link rel="stylesheet" href="./style.css">
+        <link rel="icon" href="favicon.png" type="image/png">
+
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="You're Invited" />
+        <meta property="og:description" content="Join us for our Baby Shower" />
+        <meta property="og:image" content="https://baobabyshower.github.io/invitation.png" />
+        <meta property="og:url" content="https://baobabyshower.github.io/" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="Baby_shower_invite" />
+        <meta name="twitter:title" content="You're Invited" />
+        <meta name="twitter:description" content="Join us for our Baby Shower" />
+        <meta name="twitter:image" content="https://baobabyshower.github.io/invitation.png" />
+
+    </head>
+    <body>
+        <h1>Photos</h1>
+        <div class="photo_section">
+            <div class="container">
+              <div class="gallery_title poppins_bold">PHOTO GALLERY</div>
+              <div class="gallery" id="gallery"></div>
+            </div>
+          </div>
+        
+          <div id="modal" class="modal">
+            <iframe 
+             id="modal-img"
+              src="" 
+              width="640"
+               height="480" 
+               allow="autoplay">
+            </iframe>
+            <!-- <img id="modal-img" src="" alt=""> -->
+          </div>
+        
+            <!-- FOR GALLERY -->
+            <script>
+                const folderId = '1TID28-jrGiffBQLwVMXrxgGza2GcR0-Q'; // Replace with your Google Drive folder ID
+                const apiKey = 'AIzaSyBQ2KmJybXvu7Rdr225r1n__5ifO49VCQk'; // Replace with your Google API key
+              
+                async function fetchAllImages() {
+                  const gallery = document.getElementById('gallery');
+                  let pageToken = null; // Used for pagination
+              
+                  do {
+                    // Build the API URL
+                    const url = `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${apiKey}&fields=nextPageToken,files(id,name,mimeType)&pageToken=${pageToken || ''}`;
+                    const response = await fetch(url);
+                    const data = await response.json();
+              
+                    // Loop through each file and add it to the gallery
+                    data.files.forEach(file => {
+                      if (file.mimeType.startsWith('image/')) {
+                        const thumbnailUrl = `https://drive.google.com/thumbnail?id=${file.id}`;
+                        const fullImageUrl = `https://drive.google.com/file/d/${file.id}/preview`; 
+      
+      
+                        // Create a thumbnail element
+                        const img = document.createElement('img');
+                        img.src = thumbnailUrl;
+                        img.alt = file.name;
+                        img.dataset.fullImage = fullImageUrl; // Store full-size image URL
+                        img.addEventListener('click', showImageInModal); // Add click event
+              
+                        gallery.appendChild(img);
+                      }
+                    });
+              
+                    // Get the next page token
+                    pageToken = data.nextPageToken;
+                  } while (pageToken); // Continue fetching while there's a next page
+              
+                  // Update the counter after all images are added
+                  updateImageCounter();
+                }
+              
+                // Function to update the image counter
+                function updateImageCounter() {
+                  const counterDiv = document.querySelector('.counter');
+                  const imageCount = document.querySelectorAll('#gallery img').length; // Count images in the gallery div
+                  counterDiv.textContent = `Total Images: ${imageCount}`;
+                }
+              
+                // Function to show the clicked image in the modal
+                function showImageInModal(event) {
+                  const fullImageUrl = event.target.dataset.fullImage;
+              
+                  const modal = document.getElementById('modal');
+                  const modalImg = document.getElementById('modal-img');
+              
+                  modalImg.src = fullImageUrl; // Set modal image source
+                  modal.style.display = 'flex'; // Show modal
+                }
+              
+                // Close modal on click
+                document.getElementById('modal').addEventListener('click', () => {
+                  document.getElementById('modal').style.display = 'none';
+                });
+              
+                // Fetch all images on page load
+                fetchAllImages();
+              </script>
+    </body>
+</html>
