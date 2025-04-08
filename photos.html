@@ -32,15 +32,14 @@
 
     </head>
     <body>
-        <h1>Photos</h1>
+        <h1 class="playlist">Photos</h1>
         <div class="photo_section">
             <div class="container">
-              <div class="gallery_title poppins_bold">PHOTO GALLERY</div>
               <div class="gallery" id="gallery"></div>
             </div>
           </div>
         
-          <div id="modal" class="modal">
+          <!-- <div id="modal" class="modal">
             <iframe 
              id="modal-img"
               src="" 
@@ -48,14 +47,22 @@
                height="480" 
                allow="autoplay">
             </iframe>
-            <!-- <img id="modal-img" src="" alt=""> -->
+          </div> -->
+
+          <div id="modal" class="modal">
+            <button id="prev-btn" class="modal-nav">&larr;</button>
+            <iframe id="modal-img" src="" width="640" height="480" allow="autoplay"></iframe>
+            <button id="next-btn" class="modal-nav">&rarr;</button>
           </div>
+          
         
             <!-- FOR GALLERY -->
             <script>
                 const folderId = '1TID28-jrGiffBQLwVMXrxgGza2GcR0-Q'; // Replace with your Google Drive folder ID
                 const apiKey = 'AIzaSyBQ2KmJybXvu7Rdr225r1n__5ifO49VCQk'; // Replace with your Google API key
-              
+                let allFullImageUrls = []; // Stores all full image URLs
+                let currentImageIndex = 0;
+                
                 async function fetchAllImages() {
                   const gallery = document.getElementById('gallery');
                   let pageToken = null; // Used for pagination
@@ -72,12 +79,14 @@
                         const thumbnailUrl = `https://drive.google.com/thumbnail?id=${file.id}`;
                         const fullImageUrl = `https://drive.google.com/file/d/${file.id}/preview`; 
       
-      
+                        allFullImageUrls.push(fullImageUrl); // Save URL to list
+
                         // Create a thumbnail element
                         const img = document.createElement('img');
                         img.src = thumbnailUrl;
                         img.alt = file.name;
-                        img.dataset.fullImage = fullImageUrl; // Store full-size image URL
+                        //img.dataset.fullImage = fullImageUrl; 
+                        img.dataset.index = allFullImageUrls.length - 1; // Set index
                         img.addEventListener('click', showImageInModal); // Add click event
               
                         gallery.appendChild(img);
@@ -101,14 +110,18 @@
               
                 // Function to show the clicked image in the modal
                 function showImageInModal(event) {
-                  const fullImageUrl = event.target.dataset.fullImage;
-              
-                  const modal = document.getElementById('modal');
-                  const modalImg = document.getElementById('modal-img');
-              
-                  modalImg.src = fullImageUrl; // Set modal image source
-                  modal.style.display = 'flex'; // Show modal
-                }
+                    currentImageIndex = parseInt(event.target.dataset.index);
+                    const modal = document.getElementById('modal');
+                    const modalImg = document.getElementById('modal-img');
+                  
+                    updateModalImage(); // Uses currentImageIndex to set src
+                    modal.style.display = 'flex';
+                  }
+
+                function updateModalImage() {
+                    const modalImg = document.getElementById('modal-img');
+                    modalImg.src = allFullImageUrls[currentImageIndex];
+                  }
               
                 // Close modal on click
                 document.getElementById('modal').addEventListener('click', () => {
@@ -117,6 +130,29 @@
               
                 // Fetch all images on page load
                 fetchAllImages();
+
+                // Button handlers
+                document.getElementById('next-btn').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (currentImageIndex < allFullImageUrls.length - 1) {
+                      currentImageIndex++;
+                      updateModalImage();
+                    }
+                  });
+                  
+                  document.getElementById('prev-btn').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (currentImageIndex > 0) {
+                      currentImageIndex--;
+                      updateModalImage();
+                    }
+                  });
+
+                  document.getElementById('modal').addEventListener('click', (e) => {
+                    if (e.target.id === 'modal') {
+                      document.getElementById('modal').style.display = 'none';
+                    }
+                  });
               </script>
     </body>
 </html>
