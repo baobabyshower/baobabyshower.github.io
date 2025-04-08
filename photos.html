@@ -62,7 +62,7 @@
                 const apiKey = 'AIzaSyBQ2KmJybXvu7Rdr225r1n__5ifO49VCQk'; // Replace with your Google API key
                 let allFullImageUrls = []; // Stores all full image URLs
                 let currentImageIndex = 0;
-                
+
                 async function fetchAllImages() {
                   const gallery = document.getElementById('gallery');
                   let pageToken = null; // Used for pagination
@@ -153,6 +153,38 @@
                       document.getElementById('modal').style.display = 'none';
                     }
                   });
+
+                    let touchStartX = 0;
+                    let touchEndX = 0;
+
+                    const modal = document.getElementById('modal');
+
+                    modal.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                    }, false);
+
+                    modal.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipeGesture();
+                    }, false);
+
+                    function handleSwipeGesture() {
+                    const swipeThreshold = 50; // Minimum distance in px to count as swipe
+
+                    if (touchEndX < touchStartX - swipeThreshold) {
+                        // Swipe Left = Next
+                        if (currentImageIndex < allFullImageUrls.length - 1) {
+                        currentImageIndex++;
+                        updateModalImage();
+                        }
+                    } else if (touchEndX > touchStartX + swipeThreshold) {
+                        // Swipe Right = Previous
+                        if (currentImageIndex > 0) {
+                        currentImageIndex--;
+                        updateModalImage();
+                        }
+                    }
+                    }
               </script>
     </body>
 </html>
