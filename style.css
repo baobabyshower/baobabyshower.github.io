@@ -514,6 +514,12 @@
 
 
   /***** GALLERY *****/
+.photos_title {
+  margin: 5%;
+  text-align: center;
+  font-size: 5rem;
+}
+
 .photo_section {
   width: 100%;
   min-height: 100vh;
