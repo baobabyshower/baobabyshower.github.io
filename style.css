@@ -439,6 +439,18 @@
     content: normal !important;
   }
 
+  .photos_button {
+    position: absolute; 
+    bottom: 5%; 
+    text-align: right;
+    background-color: #84a998;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 30px;
+    left: 35%;
+  }
+
   /***** MOBILE PORTRAIT *******/
   @media only screen and (max-width: 480px) and (orientation: portrait) {
     /*** HOME ***/
@@ -495,6 +507,10 @@
       iframe {
         height: 480px;
         width:640px;
+      }
+
+      .photos_button {
+        left: 35%;
       }
 
   }
@@ -610,14 +626,3 @@ iframe {
   background-color: rgba(255,255,255,1);
 }
 
-.photos_button {
-  position: absolute; 
-  bottom: 5%; 
-  text-align: right;
-  background-color: #84a998;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 30px;
-  left: 35%;
-}
