@@ -472,7 +472,6 @@
         background-color: rgba(255, 255, 255, 0.7); /* Optional: adds contrast if needed */
     }
 
-
     .home_bao {
         position: absolute;
         z-index: -1;
@@ -609,4 +608,15 @@ iframe {
 
 .modal-nav:hover {
   background-color: rgba(255,255,255,1);
+}
+
+.photos_button {
+  /* position: absolute;  */
+  bottom: 5%; 
+  text-align: right;
+  background-color: #84a998;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 30px;
 }
