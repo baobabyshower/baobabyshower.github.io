@@ -548,8 +548,8 @@
 }
 
 .gallery img {
-   width: 300px; /* Thumbnail size */
-    height: 250px; /* Adjust as needed */
+  width: 150px; /* Thumbnail size */
+  height: 125px; /* Adjust as needed */
     object-fit: cover;
     cursor: pointer;
     border-radius: 8px;
